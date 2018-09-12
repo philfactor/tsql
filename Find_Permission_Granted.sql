@@ -9,7 +9,7 @@
 --Msg 15173, Level 16, State 1, Line 2
 --Login 'AD\bh716288' has granted one or more permission(s). Revoke the permission(s) before dropping the login.
 
--- do this
+-- then do this
 
 Select * from sys.server_permissions 
 
