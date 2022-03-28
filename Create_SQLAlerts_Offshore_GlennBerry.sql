@@ -8,7 +8,7 @@ GO
 
 -- Make sure you have an Agent Operator defined
 -- Change @OperatorName as needed
-DECLARE @OperatorName sysname = N'SFWDBS-SQLSRVRDBA-ONSHORE';
+DECLARE @OperatorName sysname = N'SQLServerSupportTeam';
 
 -- Change @CategoryName as needed
 DECLARE @CategoryName sysname = N'SQL Server Agent Alerts';
@@ -39,7 +39,7 @@ DECLARE @Sev25AlertName sysname = @ServerName + N' Alert - Sev 25 Error: Fatal E
 DECLARE @Error825AlertName sysname = @ServerName + N' Alert - Error 825: Read-Retry Required'; -- Severity Level 10
 
 -- Sev 17 Error: Insufficient Resources -- added by Phil Streiff
-IF NOT EXISTS (SELECT name FROM msdb.dbo.sysalerts WHERE name = @Sev17AlertName)
+IF NOT EXISTS (SELECT name FROM msdb.dbo.sysalerts WHERE name = @Sev19AlertName)
     EXEC msdb.dbo.sp_add_alert @name = @Sev17AlertName, 
                   @message_id=0, @severity=17, @enabled=1, 
                   @delay_between_responses=900, @include_event_description_in=1,

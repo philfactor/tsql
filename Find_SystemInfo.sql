@@ -18,3 +18,19 @@ SELECT
 --,	os_priority_class
 FROM 
 	sys.dm_os_sys_info 
+
+	
+-- alternative (same thing basically)
+USE [master];
+GO
+SELECT 
+	cpu_count
+,	hyperthread_ratio
+,	(cpu_count * hyperthread_ratio) AS 'logical_processors'
+,	physical_memory_in_bytes / (1024 * 1024) AS 'mem_MB'
+,	virtual_memory_in_bytes / (1024 * 1024) AS 'virtual_mem_MB'
+--,	max_workers_count
+--,	os_error_mode
+--,	os_priority_class
+FROM 
+	sys.dm_os_sys_info 

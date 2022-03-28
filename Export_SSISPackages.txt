@@ -1,0 +1,6 @@
+-- https://www.ssistalk.com/2011/03/14/ssis-export-all-ssis-packages-from-msdb/
+
+-- 1. Create ExportSSISPackages.dtsx according to article
+-- 2. Modify connection and run on source SQL Server BIDS
+-- 3. Copy package files (.dtsx) from source to destination server
+-- 4. Import Packages on destination server
