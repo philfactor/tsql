@@ -17,7 +17,7 @@ SELECT @NumNumaNodes = COUNT( *
 SELECT @sockets = cpu_count / hyperthread_ratio ,
 	   @logical_cpus = cpu_count , 
        @CoresOrHyperthreadedCPU = hyperthread_ratio ,
-       @recommendedMaxdop = cpu_count / @NumNumaNodes
+       @recommendedmaxdop = cpu_count / @NumNumaNodes
   FROM sys.dm_os_sys_info;
 IF @recommendedmaxdop
    > 
@@ -29,3 +29,11 @@ SELECT @sockets AS Sockets ,
 	   @logical_cpus AS LogicalCPUS ,
 	   @CoresOrHyperthreadedCPU AS CoresOrHyperthreadedCPU , 
        @recommendedmaxdop AS RecommendedMaxdop;
+
+
+/*
+EXEC sys.sp_configure N'max degree of parallelism', N'8'
+GO
+RECONFIGURE WITH OVERRIDE
+GO
+*/

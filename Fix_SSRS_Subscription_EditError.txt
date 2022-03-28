@@ -1,0 +1,40 @@
+-- https://social.msdn.microsoft.com/Forums/sqlserver/en-US/d49ce4df-ee0c-42ef-aace-c8ebb0347135/manage-individual-subscriptions-task-problem-cannot-edit-email-address?forum=sqlreportingservices
+
+Modify rsreportserver.config file located here:
+E:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer
+
+If user cannot edit own subscription by changing the 'To' email address because the field is disabled (dimmed)
+
+<Extension Name="Report Server Email" Type="Microsoft.ReportingServices.EmailDeliveryProvider.EmailProvider,ReportingServicesEmailDeliveryProvider">
+				<MaxRetries>3</MaxRetries>
+				<SecondsBeforeRetry>900</SecondsBeforeRetry>
+				<Configuration>
+					<RSEmailDPConfiguration>
+						<SMTPServer>mailhost.corp.sprint.com</SMTPServer>
+						<SMTPServerPort></SMTPServerPort>
+						<SMTPAccountName></SMTPAccountName>
+						<SMTPConnectionTimeout></SMTPConnectionTimeout>
+						<SMTPServerPickupDirectory></SMTPServerPickupDirectory>
+						<SMTPUseSSL>False</SMTPUseSSL>
+						<SendUsing>2</SendUsing>
+						<SMTPAuthenticate>0</SMTPAuthenticate>
+						<SendUserName></SendUserName>
+						<SendPassword></SendPassword>
+						<From>DVMXD597-MS2017_DEV@sprint.com</From>
+						<EmbeddedRenderFormats>
+							<RenderingExtension>MHTML</RenderingExtension>
+						</EmbeddedRenderFormats>
+						<PrivilegedUserRenderFormats></PrivilegedUserRenderFormats>
+						<ExcludedRenderFormats>
+							<RenderingExtension>HTMLOWC</RenderingExtension>
+							<RenderingExtension>NULL</RenderingExtension>
+							<RenderingExtension>RGDI</RenderingExtension>
+						</ExcludedRenderFormats>
+						<SendEmailToUserAlias>False</SendEmailToUserAlias>
+						<DefaultHostName></DefaultHostName>
+						<PermittedHosts></PermittedHosts>
+					</RSEmailDPConfiguration>
+				</Configuration>
+			</Extension>
+			
+http://PLSWE362:80/Reports_SSRS

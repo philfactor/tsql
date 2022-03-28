@@ -113,6 +113,8 @@ SELECT dbname AS [database name],
    cast(used/[size]*100 AS numeric(9,2)) AS [space used %],
    cast(100-(used/[size]*100) AS numeric(9,2)) AS [free space %]
 FROM #DBSTATS
+-- uncomment next line to specify single database
+-- WHERE dbname = 'StreamingDb'
 ORDER BY dbname, usage 
 
 DROP TABLE #DBSTATS

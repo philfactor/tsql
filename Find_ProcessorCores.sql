@@ -7,10 +7,8 @@ xp_cmdshell "wmic cpu get NumberofCores, NumberofLogicalProcessors"
 select 
 	cpu_count/hyperthread_ratio AS sockets,
 	hyperthread_ratio,
-	cpu_count  
+	cpu_count,
+	(physical_memory_kb/1024) as 'Memory (MB)'
 from 
 	sys.dm_os_sys_info
 	
--- alternative
-SELECT cpu_count/hyperthread_ratio AS sockets
-FROM sys.dm_os_sys_info

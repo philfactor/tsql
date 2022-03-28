@@ -1,0 +1,9 @@
+Email from Devin Kelley on 2/12/2020
+
+Okay Nikhul worked with me to show me the steps to create a new SSIS project and attempt the script tool so that I could then work through it with a test user ID of my own. I honed in on the issue fairly quickly. I haven’t seen this before, but for some reason there’s a folder called E:\ProgramData.
+
+Instead of using the ProgramData that’s on C: that comes with Windows two products are using E:\ProgramData instead, and the folder E:\ProgramData\Microsoft\VisualStudio\Packages was one users didn’t have access to (if on C: local Users group has a certain level of access so it’d work there without changes).
+
+So I added local Users the ability to traverse E:\ProgramData, AD\B5P-App-Admins with RO access to E:\ProgramData\Microsoft in case you want to browse the path, and Modify access to E:\ProgramData\Microsoft\VisualStudio\Packages and was then able to successfully use the Script Tool, which must Write into this directory, with my desktop user-level ID.
+
+So test that out and see if that helps. I’ve completed this on both tvmxe198 and pvmxe220.
